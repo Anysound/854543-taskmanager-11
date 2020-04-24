@@ -1,7 +1,6 @@
 import {MONTHS} from '../const.js';
-import {formatTime} from '../utils.js';
+import {formatTime, createElement} from '../utils.js';
 
-// экспорт
 const createTaskTemplate = (task) => {
   const {description, dueDate, color, repeatingDays, isFavorite, isArchive} = task;
 
@@ -62,4 +61,27 @@ const createTaskTemplate = (task) => {
   );
 };
 
-export {createTaskTemplate};
+class Task {
+  constructor(task) {
+    this._task = task;
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createTaskTemplate(this._task);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
+
+export default Task;
