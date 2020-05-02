@@ -1,26 +1,19 @@
-import {createElement} from '../utils.js';
 import {createTaskEditTemplate} from '../templates/taskEdit.js';
+import AbstractComponent from './abstractComponent.js';
 
-class TaskEdit {
+class TaskEdit extends AbstractComponent {
   constructor(task) {
+    super();
     this._task = task;
-    this._element = null;
   }
 
   getTemplate() {
     return createTaskEditTemplate(this._task);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setSubmitHandler(handler) {
+    this.getElement().querySelector(`form`)
+      .addEventListener(`submit`, handler);
   }
 }
 
