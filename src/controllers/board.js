@@ -126,7 +126,6 @@ class BoardController {
     render(container, this._tasksComponent, RenderPosition.BEFOREEND);
 
     const taskListElement = this._tasksComponent.getElement();
-    
 
     this.renderTasks(taskListElement, tasks.slice(0, showingTasksCount));
     this.renderLoadMoreBtn(tasks);
