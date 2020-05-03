@@ -1,25 +1,13 @@
-import {createElement} from '../utils.js';
 import {createLoadMoreBtnTemplate} from '../templates/loadMoreBtn.js';
+import AbstractComponent from './abstractComponent.js';
 
-class LoadMoreBtn {
-  constructor() {
-    this._element = null;
-  }
-
+class LoadMoreBtn extends AbstractComponent {
   getTemplate() {
     return createLoadMoreBtnTemplate();
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setClickHandler(handler) {
+    this.getElement().addEventListener(`click`, handler);
   }
 }
 

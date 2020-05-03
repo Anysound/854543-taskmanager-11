@@ -1,25 +1,9 @@
-import {createElement} from '../utils.js';
 import {createTasksTemplate} from '../templates/tasks.js';
+import AbstractComponent from './abstractComponent.js';
 
-class Tasks {
-  constructor() {
-    this._element = null;
-  }
-
+class Tasks extends AbstractComponent {
   getTemplate() {
     return createTasksTemplate();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
 

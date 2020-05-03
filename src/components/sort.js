@@ -1,25 +1,36 @@
-import {createElement} from '../utils.js';
-import {createSortTemplate} from '../templates/sort.js';
+import {createSortTemplate, SortType} from '../templates/sort.js';
+import AbstractComponent from './abstractComponent.js';
 
-class Sort {
+class Sort extends AbstractComponent {
   constructor() {
-    this._element = null;
+    super();
+    this._currentSortType = SortType.DEFAULT;
   }
-
   getTemplate() {
     return createSortTemplate();
   }
 
-  getElement() {
-    if (!this._element) {
-      return createElement(this.getTemplate());
-    }
-
-    return this._element;
+  getSortType() {
+    return this._currentSortType;
   }
 
-  removeElement() {
-    this._element = null;
+  setSortTypeChangeHandler(handler) {
+    this.getElement().addEventListener(`click`, (evt) => {
+      evt.preventDefault();
+
+      if (evt.target.tagName !== `A`) {
+        return;
+      }
+
+      const sortType = evt.target.dataset.sortType;
+
+      if (this._currentSortType === sortType) {
+        return;
+      }
+
+      this._currentSortType = sortType;
+      handler(this._currentSortType);
+    });
   }
 }
 
