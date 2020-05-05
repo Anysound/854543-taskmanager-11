@@ -45,12 +45,6 @@ const renderTask = (taskListElement, task) => {
   render(taskListElement, taskComponent, RenderPosition.BEFOREEND);
 };
 
-// const renderTasks = (taskListElement, tasks) => {
-//   tasks.forEach((task) => {
-//     renderTask(taskListElement, task);
-//   });
-// };
-
 const getSortedTasks = (tasks, sortType, from, to) => {
   let sortedTasks = [];
   const showingTasks = tasks.slice();
