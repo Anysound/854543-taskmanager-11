@@ -15,6 +15,16 @@ class Task extends AbstractComponent {
     this.getElement().querySelector(`.card__btn--edit`)
       .addEventListener(`click`, handler);
   }
+
+  setFavoritesBtnClickHandler(handler) {
+    this.getElement().querySelector(`.card__btn--favorites`)
+      .addEventListener(`click`, handler);
+  }
+
+  setArchiveBtnClickHandler(handler) {
+    this.getElement().querySelector(`.card__btn--archive`)
+      .addEventListener(`click`, handler);
+  }
 }
 
 export default Task;
