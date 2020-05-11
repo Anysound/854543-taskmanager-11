@@ -1,8 +1,6 @@
 import {createTaskEditTemplate} from '../templates/taskEdit.js';
 import AbstractSmartComponent from './abstractSmartComponent.js';
 
-
-
 class TaskEdit extends AbstractSmartComponent {
   constructor(task) {
     super();
@@ -57,14 +55,14 @@ class TaskEdit extends AbstractSmartComponent {
 
         this.rerender();
       });
-    
+
     element.querySelector(`.card__repeat-toggle`)
       .addEventListener(`click`, () => {
         this._isRepeatingTask = !this._isRepeatingTask;
 
         this.rerender();
       });
-    
+
     const repeatDays = element.querySelector(`.card__repeat-days`);
 
     if (repeatDays) {

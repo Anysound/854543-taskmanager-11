@@ -8,8 +8,8 @@ const createBtnTemplate = (name, isActive = true) => {
       class="card__btn card__btn--${name} ${isActive ? `` : `card__btn--disabled`}">
       ${name}
     </button>`
-  )
-}
+  );
+};
 
 const createTaskTemplate = (task) => {
   const {description, dueDate, color, repeatingDays} = task;

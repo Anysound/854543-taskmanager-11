@@ -3,9 +3,9 @@ import TaskEditComponent from '../components/taskEdit.js';
 import {render, replace, RenderPosition} from '../utils/render.js';
 
 const Mode = {
-  DEFAULT: 'default',
+  DEFAULT: `default`,
   EDIT: `edit`
-}
+};
 
 class TaskController {
   constructor(container, onDataChange, onViewChange) {
@@ -32,17 +32,17 @@ class TaskController {
     });
 
     this._taskComponent.setArchiveBtnClickHandler(() => {
-      
+
       // newData = Object.assign()
       this._onDataChange(this, task, Object.assign({}, task, {
         isArchive: !task.isArchive
-      }))
+      }));
     });
 
     this._taskComponent.setFavoritesBtnClickHandler(() => {
       this._onDataChange(this, task, Object.assign({}, task, {
         isFavorite: !task.isFavorite
-      }))
+      }));
     });
 
     this._taskEditComponent.setSubmitHandler((evt) => {
@@ -82,7 +82,7 @@ class TaskController {
 
     if (isEscKey) {
       this._replaceEditToTask();
-      document.removeEventListener(`keydown`, this._onEscKeyDown)
+      document.removeEventListener(`keydown`, this._onEscKeyDown);
     }
   }
 }

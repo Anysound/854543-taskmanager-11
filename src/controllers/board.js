@@ -56,12 +56,12 @@ class BoardController {
       taskController.render(task);
 
       return taskController;
-    })
+    });
   }
 
   render(tasks) {
     this._tasks = tasks;
-  
+
     const container = this._container.getElement();
     const isAllTasksArchived = this._tasks.every((task) => task.isArchive);
 
@@ -105,7 +105,7 @@ class BoardController {
       if (this._showingTasksCount >= this._tasks.length) {
         remove(this._loadMoreBtnComponent);
       }
-      
+
     });
   }
 
@@ -116,7 +116,7 @@ class BoardController {
       return;
     }
 
-    // перерисовка тасков с обновленным newData. Берутся старые таски до индекса изменненого массива, 
+    // перерисовка тасков с обновленным newData. Берутся старые таски до индекса изменненого массива,
     // вставляется newData, затем добавляется остаток
     this._tasks = [].concat(this._tasks.slice(0, index), newData, this._tasks.slice(index + 1));
 
@@ -124,7 +124,7 @@ class BoardController {
   }
 
   _onViewChange() {
-    this._showedTaskControllers.forEach((it) => it.setDefaultView())
+    this._showedTaskControllers.forEach((it) => it.setDefaultView());
   }
 
   _onSortTypeChange(sortType) {

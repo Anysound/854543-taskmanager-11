@@ -25,7 +25,7 @@ const createColorsMarkup = (colors, currentColor) => {
 
 const isRepeating = (repeatingDays) => {
   return Object.values(repeatingDays).some(Boolean);
-}
+};
 
 const createRepeatingDaysMarkup = (days, repeatingDays) => {
   return days
