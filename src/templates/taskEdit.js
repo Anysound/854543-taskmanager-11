@@ -1,5 +1,5 @@
-import {DAYS, MONTHS, COLORS} from '../const.js';
-import {formatTime} from '../utils/common.js';
+import {DAYS, COLORS} from '../const.js';
+import {formatTime, formatDate} from '../utils/common.js';
 
 const createColorsMarkup = (colors, currentColor) => {
   return colors
@@ -56,7 +56,7 @@ const createTaskEditTemplate = (task, options = {}) => {
   const isBlockSaveBtn = (isDateShowing && isRepeatingTask) ||
     (isRepeatingTask && isRepeating(activeRepeatingDays));
 
-  const date = (isDateShowing && dueDate) ? `${dueDate.getDate()} ${MONTHS[dueDate.getMonth()]}` : ``;
+  const date = (isDateShowing && dueDate) ? formatDate(dueDate) : ``;
   const time = (isDateShowing && dueDate) ? formatTime(dueDate) : ``;
 
   // const isRepeatingTask = Object.values(repeatingDays).some(Boolean);
